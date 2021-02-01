@@ -2,9 +2,8 @@
 
 #include<stdio.h>
 
-void main()
+int main()
 {
-  clrscr();
-  printf("My Name Is Puchalapalli Sathvic")
-  getch();
+  printf(" Puchalapalli Sathvic")
+  return(0);
 }
