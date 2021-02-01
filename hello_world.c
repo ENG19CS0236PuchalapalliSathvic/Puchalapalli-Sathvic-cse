@@ -4,6 +4,6 @@
 
 int main()
 {
-  printf(" Puchalapalli Sathvic")
-  return(0);
+  printf(" Puchalapalli Sathvic");
+  return 0;
 }
