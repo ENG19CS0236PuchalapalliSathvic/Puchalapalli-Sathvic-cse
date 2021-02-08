@@ -8,9 +8,9 @@ float x, y;
 }
 Points;
 
-float calc_dist(Points a, Points b){
+float calc_dist(Points a, Points b)
+{
 return sqrt(((a.x - b.x)*(a.x - b.x))+((a.y - b.y)*(a.y - b.y)));
-
 };
 
 Points input(Points temp)
