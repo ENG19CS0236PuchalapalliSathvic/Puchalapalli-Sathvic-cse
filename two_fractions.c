@@ -4,8 +4,8 @@ typedef struct fraction
 {
 int numerator, denominator;
 }
-Fractions;
-Fractions input(Fractions temp)
+Fraction;
+Fraction input(Fractions temp)
 {
 printf("Enter the numerator:");
 scanf("%d",&temp.numerator);
@@ -13,7 +13,7 @@ printf("Enter the denominator:");
 scanf("%d",&temp.denominator);
 return temp;
 };
-void show_output(Fractions temp,Fractions a, Fractions b)
+void show_output(Fraction temp,Fraction a, Fraction b)
 {
 printf("Sum of two fraction is %d/%d+%d/%d = %d/%d",a.numerator,a.denominator,b.numerator,b.denominator,temp.numerator,temp.denominator);
 };
@@ -25,7 +25,7 @@ int gcd(int x,int y)
     }
     return gcd(y%x,x);
 };
-Fractions calc_output(Fractions a, Fractions b)
+Fractions calc_output(Fraction a, Fraction b)
 {
     Fractions c;
     int x,y;
@@ -39,7 +39,7 @@ Fractions calc_output(Fractions a, Fractions b)
 };
 int main()
 {
-Fractions a,b,c;
+Fraction a,b,c;
 int gcd;
 printf("Enter 1st fraction:\n");
 a = input(a);
