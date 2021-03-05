@@ -1,27 +1,12 @@
 //WAP to find the sum of two fractions.
 #include<stdio.h>
-typedef struct fraction
+#include<stdio.h>
+typedef struct
 {
-  int numerator, denominator;
-}
-Fraction;
-Fraction
-input (Fraction temp)
-{
-  printf ("Enter the numerator:");
-  scanf ("%d", &temp.numerator);
-  printf ("Enter the denominator:");
-  scanf ("%d", &temp.denominator);
-  return temp;
-};
+  int n;
+  int d;
 
-void
-show_output (Fraction temp, Fraction a, Fraction b)
-{
-  printf ("Sum of two fraction is %d/%d+%d/%d = %d/%d", a.numerator,
-	  a.denominator, b.numerator, b.denominator, temp.numerator,
-	  temp.denominator);
-};
+} Fraction;
 
 int
 gcd (int x, int y)
@@ -30,31 +15,49 @@ gcd (int x, int y)
     {
       return y;
     }
-  return gcd (y % x, x);
+  return gcd (x % y, x);
 };
 
-Fractions
-calc_output (Fraction a, Fraction b)
+Fraction
+sum (Fraction f1, Fraction f2)
 {
-  Fractions c;
+  Fraction c;
   int x, y;
-  x = (a.numerator * b.denominator) + (b.numerator * a.denominator);
-  y = (a.denominator * b.denominator);
-  c.numerator = x / gcd (x, y);
-  c.denominator = y / gcd (x, y);
+  x = (f1.n * f2.d) + (f2.n * f1.d);
+  y = (f1.d * f2.d);
+  int g = gcd(x,y);
+  c.n = x / g;
+  c.d = y / g;
+  return c;
+}
+
+Fraction
+input (int a)
+{
+  Fraction c;
+  printf ("Enter fraction %d: numerator and denominator:", a);
+  scanf ("%d%d", &c.n, &c.d);  
+  if(c.d==0)
+  {     
+      printf("please enter valid denominator ");                                                
+      c=input (a); 
+      
+  }
   return c;
 };
+
+void
+display (Fraction f1, Fraction f2, Fraction r)
+{
+  printf ("Result of %d/%d + %d/%d = %d/%d", f1.n, f1.d, f2.n, f2.d,r.n, r.d);
+}
 
 int
 main ()
 {
-  Fractions a, b, c;
-  int gcd;
-  printf ("Enter 1st fraction:\n");
-  a = input (a);
-  printf ("Enter 2nd fraction:\n");
-  b = input (b);
-  c = calc_output (a, b);
-  show_output (c, a, b);
+  Fraction f1 = input (1);
+  Fraction f2 = input (2);
+  Fraction r = sum (f1, f2);
+  display (f1, f2, r);
   return 0;
 }
