@@ -21,29 +21,29 @@ gcd (int x, int y)
 Fraction
 sum (Fraction f1, Fraction f2)
 {
-  Fraction c;
+  Fraction k;
   int x, y;
   x = (f1.n * f2.d) + (f2.n * f1.d);
   y = (f1.d * f2.d);
   int g = gcd(x,y);
-  c.n = x / g;
-  c.d = y / g;
-  return c;
+  k.n = x / g;
+  k.d = y / g;
+  return k;
 }
 
 Fraction
 input (int a)
 {
-  Fraction c;
-  printf ("Enter fraction %d: numerator and denominator:", a);
-  scanf ("%d%d", &c.n, &c.d);  
-  if(c.d==0)
+  Fraction k;
+  printf ("Enter a fraction %d: numerator and denominator:", a);
+  scanf ("%d%d", &k.n, &k.d);  
+  if(k.d==0)
   {     
       printf("please enter valid denominator ");                                                
-      c=input (a); 
+      k=input (a); 
       
   }
-  return c;
+  return k;
 };
 
 void
@@ -61,3 +61,4 @@ main ()
   display (f1, f2, r);
   return 0;
 }
+
