@@ -48,3 +48,43 @@ computeOne (Fraction s1, Fraction s2)
   Computevalue.d = (Computevalue.d / gcdvalue);
   return Computevalue;
 }
+
+Fraction
+computeN (int n, Fraction s[n])
+{
+  Fraction result;
+  result.n = 0;
+  result.d = 1;
+  for (int i = 0; i < n ; i++)
+    {
+      result = computeOne (result, s[i]);
+    }
+  return result;
+}
+
+int
+GetnumberOfFraction ()
+{
+  int n;
+  printf ("Enter the number of fractions to be added: ");
+  scanf ("%d", &n);
+  return n;
+}
+
+void
+displayOutput (Fraction sum, int n)
+{
+  printf ("The sum of %d Fractions is  %d/%d ", n, sum.n, sum.d);
+}
+
+int
+main ()
+{
+  Fraction SumOfFractions;
+  int n;
+  n = GetnumberOfFraction ();
+  Fraction s[n];
+  getN (n, s);
+  SumOfFractions = computeN (n, s);
+  displayOutput (SumOfFractions, n);
+}
